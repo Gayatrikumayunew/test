@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        body{
+            background-color: rgb(138, 182, 221);
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          }
+        .container{
+            background-color:rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 14px #bfa7a7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            width: 350px;
+            border: transparent;
+            gap: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            flex-direction: row;
+        }
+        button{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 15px;
+            padding: 6px ;
+            margin: 2px;
+            border: none;
+            background-color:#fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgb(148, 52, 52);
+        }
+        span{
+            background-color: #fff;
+            border: transparent;
+            padding: 5px 10px;
+            font-size: 15px;
+            color: rgb(81, 27, 27);
+            font-weight: 600;
+            font-style: bold;
+            border-radius: 4px ;
+        }
+        #resetBtn{
+            position: absolute;
+            top: 55%;
+            right: 48%;
+            background-attachment: sticky;
+        }
+         
+    </style>
+   
+</head>
+<body>
+    <div class="container">
+        <button id="decrementBtn">Decrement by 1</button>
+        <span id="displayvalue">0</span>
+        <button id="incrementBtn">Increment by 1</button>
+        
+           
+        </div>
+        
+        <button id="resetBtn">RESET</button>
+        <script>
+            const decrementBtn=document.getElementById("decrementBtn");
+            const incrementBtn=document.getElementById("incrementBtn");
+            const resetBtn=document.getElementById("resetBtn");
+            const displayvalue =document.getElementById("displayvalue");
+
+            decrementBtn.addEventListener("click",()=>{
+                const value =Number(displayvalue.innerText);
+                if(value>0){
+                    displayvalue.innerText=value-1;
+                }
+                else{
+                    alert("Negative values are not allowed");
+                }
+            });
+
+            incrementBtn.addEventListener("click",()=>{
+                const value=Number(displayvalue.innerText);
+                if(value>=10){
+                    alert("Value greater than 10 are not allowed");
+                }
+                else{
+displayvalue.innerText=value+1;
+                }
+            });
+
+            //
+
+            resetBtn.addEventListener("click",()=>{
+                displayvalue.innerText=0;
+            });
+
+
+        </script>
+    </body>
+</html>
